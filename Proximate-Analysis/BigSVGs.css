@@ -1,0 +1,65 @@
+.lastmin {
+  height: 550px;
+  width: 280px;
+  margin-left: 980px;
+  position: absolute;
+  background-color: rgb(238, 236, 236);
+  margin-top: 25px;
+  text-align: center;
+  box-shadow: 2px 2px 5px;
+}
+
+.Second {
+  display: none;
+  position: relative;
+  z-index: 0;
+}
+
+.First {
+  margin-top: -1000px;
+  position: absolute;
+}
+/* 
+#hourhand{
+    transition: 1s; */
+/* width="2.7475712"
+    height="16.148567"
+    x="-120.31011"
+    y="-1.3922212" */
+
+/* }
+#hourhand:hover{
+    transform:rotate(180deg);
+} */
+
+.master {
+  height: 90px;
+  width: 600px;
+  margin-left: 300px;
+  position: relative;
+  z-index: 0;
+}
+
+.slave {
+  height: 90px;
+  width: 600px;
+  margin-left: 140px;
+  position: absolute;
+  background-color: rgb(238, 236, 236);
+
+  text-align: center;
+  box-shadow: 2px 2px 5px;
+}
+.m {
+  display: none;
+}
+/*  #cruciblelid{
+  
+   transform: scale(0.8);
+} */
+
+.PPisplay {
+  margin-top: -1000px;
+  position: relative;
+  background-color: rgb(255, 127, 206);
+}

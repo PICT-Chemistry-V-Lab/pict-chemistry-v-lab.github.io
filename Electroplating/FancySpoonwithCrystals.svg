@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="FancySpoonwithCrystals.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg5319"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs5313" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-11"
+     inkscape:window-x="-11"
+     inkscape:window-height="986"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="525.77169"
+     inkscape:cx="86.447305"
+     inkscape:zoom="0.49497475"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5316">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       transform="scale(0.26458333)"
+       d="M 597.14062 480 A 120.00002 45.714289 0 0 0 485.64453 508.81641 C 484.73565 508.66861 483.80934 508.57227 482.85742 508.57227 L 82.857422 508.57227 C 73.360278 508.57227 65.714844 516.21768 65.714844 525.71484 C 65.714844 535.21197 73.360278 542.85742 82.857422 542.85742 L 482.85742 542.85742 C 483.80862 542.85742 484.73435 542.76085 485.64258 542.61328 A 120.00002 45.714289 0 0 0 597.14258 571.42773 A 120.00002 45.714289 0 0 0 717.14258 525.71484 A 120.00002 45.714289 0 0 0 597.14258 480 A 120.00002 45.714289 0 0 1 597.14062 480 z "
+       style="fill:#c8b7b7;stroke-width:1.51181104;stroke-miterlimit:4;stroke-dasharray:none;stroke:#000000;stroke-opacity:1"
+       id="rect5329" />
+    <path
+       inkscape:transform-center-y="4.3503648"
+       inkscape:transform-center-x="-5.669636"
+       d="m 132.29166,143.63095 -2e-5,-2e-5 3e-5,0 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="true"
+       sodipodi:arg2="2.6179938"
+       sodipodi:arg1="1.5707963"
+       sodipodi:r2="19.369205"
+       sodipodi:r1="1.5258789e-05"
+       sodipodi:cy="143.63094"
+       sodipodi:cx="132.29166"
+       sodipodi:sides="3"
+       id="path5335"
+       style="fill:#00ffff;stroke-width:0.264583"
+       sodipodi:type="star" />
+    <path
+       sodipodi:nodetypes="cccc"
+       d="m 187.4762,139.8512 c -12.17927,6.68138 -26.15056,11.45485 -37.31801,-0.61424 5.36281,-10.67154 11.55895,-22.86439 16.92175,-33.53593 z"
+       transform="matrix(0.96216163,0,0,0.52705117,-2.7335882,66.14246)"
+       inkscape:transform-center-y="0.22590176"
+       inkscape:transform-center-x="0.3636772"
+       style="fill:#00ffff;stroke-width:0.42128001;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5337" />
+  </g>
+</svg>

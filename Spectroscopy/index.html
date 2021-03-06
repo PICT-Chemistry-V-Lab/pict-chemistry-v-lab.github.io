@@ -1,0 +1,1225 @@
+
+  
+<html>
+    <head>
+        <title>Experiment 6</title>
+        <link rel="stylesheet" href="thecss.css">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+      <!-- <script src="plotly-latest.min.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://kit.fontawesome.com/3a69774550.js" crossorigin="anonymous"></script>
+    </head>
+    <body style = "overflow: hidden; background-color: #63796c" onload="f0()">
+      <div class="box"  id = "Grinch" style="display: none;" ><!--style="display:none"-->
+         <select onchange="test(this)";>
+            <option  value="1">Select the concentration</option>
+          <option id= "p1" value="1">0.00009 M</option>
+          <option id = "p2" value="2">0.0001 M</option> 
+           <option id = "p3"value="3" >0.00016 M</option> 
+           <option id = "p4"value="4">0.00027 M</option> 
+           <option id = "p5" value="5">0.0004 M</option>
+         </select>
+      </div>
+      <div id="svg3" style="display: none; text-align: center;">
+         <div style = "margin-top: 150px;"></div>
+         <div>Verification of Beer's Law</div>
+      </div>
+      <div id="svg4" style="display: none;text-align: center;">
+         <div style = "margin-top: 150px;"></div>
+         <div>To Determine Unknown Concentration</div>
+      </div>
+      <div class="popup1" id = "Santa" style = "display: none; text-indent: 8px;"></div>
+      <div id="popup2">Wavelength Range: 400nm-700nm</div>
+      
+        <!-- <div class="slave" id="fun51">
+            <p>Experiment Concluded :)</p> -->
+      <div class="slave" id="fun24">
+         <p>Experiment Concluded</p>
+     </div>
+        <div class="slave" id="fun23">
+            <p><b>Click on the Spectrophotometer</b> to place the cuvettes back on the shelf</p>
+        </div>
+     <div class="slave" id="fun22">
+         <p><b>Click on the knob of the spectrophotometer</b> to plot the unknown concentration</p>
+     </div>
+     <div class="slave" id="fun21">
+      <p><b>Click on the sample cuvette</b> to place it in the sample holder of spectrophotometer</p>
+   </div>
+     <div class="slave" id="fun20">
+      <p><b>Click on the reference cuvette (filled with distilled water)</b> to place it in the reference holder of spectrophotometer</p>
+   </div>
+    <div class="slave" id="fun19">
+        <p><b>Click on the empty cuvette</b> to fill it with KMn0<sub>4</sub> solution</p>
+    </div>
+    <div class="slave" id="fun18">
+        <p><b>Click on the micropipette</b> to fill it with KMnO<sub>4</sub> solution</p>
+    </div>
+    <div class="slave" id="fun17">
+        <p><b>Click on the empty cuvette</b> to bring it down on the table</p>
+    </div>
+    <div class="slave" id="fun16">
+       <p><b>Click on the beaker </b>to bring down KMnO<sub>4</sub> solution (of unknown concentration) on the table</p>
+    </div>
+    <div class="slave" id="fun15">
+      <p><b>Click on the spectrophotometer</b> to find concentration of unknown solution</p>
+  </div>
+        </div>
+        <div class="slave" id="fun14">
+            <p><b>Click on the monitor</b> to check the absorbance (at λ<sub>max</sub>) vs concentration graph</p>
+        </div>
+       <div class="slave" id="fun13">
+           <p><b>Click on the spectrophotometer</b> to start Verification of Beer's Law</p>
+       </div>
+       <div class="slave" id="fun12">
+           <p><b> Click on the monitor </b> again to compare the graphs</p>
+       </div>
+       <div class="slave" id="fun11">
+           <p><b>Select</b> different concentrations one by one from the dropdown menu and </p><p><b>click on the monitor</b> to observe their plots</p>
+       </div>
+         <!--First reading done-->
+        <div class="slave" id="fun10">
+         <p>The first reading is done. <b>Click on the spectrophotometer</b> to place the cuvettes back on the shelf</p>
+        </div>
+        <div class="slave" id="fun9">
+         <p><b>Click on the knob on the spectrophotometer to close the lid</b> and start recording the values.</p>
+        </div>
+        <div class="slave" id="fun8">
+         <p><b>Click on the sample cuvette</b> to place it in the sample holder of spectrophotometer</p>
+        </div>
+        <div class="slave" id="fun7">
+         <p><b>Click on the reference cuvette (filled with distilled water)</b> to place it in the reference holder of spectrophotometer</p>
+        </div>
+        <div class="slave" id="fun6">
+         <p><b>Click on the empty cuvette</b> to fill it with KMn0<sub>4</sub> solution</p>
+        </div>
+       <div class="slave" id="fun5">
+         <p><b>Click on the micropipette</b> to fill it with KMnO<sub>4</sub> solution</p>
+       </div>
+       <div class="slave" id="fun4">
+         <p><b>Click on the empty cuvette</b> to bring it down on the table</p>
+       </div>
+       <div class="slave" id="fun3">
+         <p><b>Click on the beaker </b>filled with selected KMnO<sub>4</sub> solution to bring it down on the table</p>
+       </div>
+       <div class="slave" id="fun2">
+          <p><b>Select the KMnO<sub>4</sub> solution concentration from the dropdown menu</b></p>
+       </div>
+       <div class="slave master" id = "fun1">
+           <p><b>Click on the Red Button on spectrophotometer</b> to turn it ON and wait for 30 minutes to initialize</p>
+       </div>
+
+       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+       <div id="svg1">
+<svg style = "margin-top: 50px;"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+sodipodi:docname="Layout.svg"
+inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+id="svg8"
+version="1.1"
+viewBox="0 0 360 210"
+height="210mm"
+width="297mm">
+<defs
+ id="defs2" />
+<sodipodi:namedview
+ inkscape:window-maximized="1"
+ inkscape:window-y="-11"
+ inkscape:window-x="-11"
+ inkscape:window-height="986"
+ inkscape:window-width="1920"
+ showgrid="false"
+ inkscape:document-rotation="0"
+ inkscape:current-layer="layer1"
+ inkscape:document-units="mm"
+ inkscape:cy="304.28952"
+ inkscape:cx="472.24859"
+ inkscape:zoom="0.98994949"
+ inkscape:pageshadow="2"
+ inkscape:pageopacity="0.0"
+ borderopacity="1.0"
+ bordercolor="#666666"
+ pagecolor="#ffffff"
+ id="base" />
+<metadata
+ id="metadata5">
+<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title></dc:title>
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+<g
+ id="layer1"
+ inkscape:groupmode="layer"
+ inkscape:label="Layer 1">
+<rect
+   ry="1.5367979"
+   y="113.77083"
+   x="-0.37797621"
+   height="13.985122"
+   width="296.33334"
+   id="rect833"
+   style="fill:#483737;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="1.5367979"
+   y="33.639881"
+   x="193.14583"
+   height="6.8035712"
+   width="104.32143"
+   id="rect837"
+   style="fill:#483737;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="1.5367979"
+   y="122.46429"
+   x="7.5595236"
+   height="56.318451"
+   width="9.8273811"
+   id="rect850"
+   style="fill:#483737;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="1.5367979"
+   y="120.19643"
+   x="280.08035"
+   height="56.696423"
+   width="10.205369"
+   id="rect852"
+   style="fill:#483737;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.98674047"
+   y="77.049294"
+   x="4.4445109"
+   height="36.646084"
+   width="61.730923"
+   id="rect854" onclick = "f1()"
+   style="fill:#808080;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.98674047"
+   y="82.388458"
+   x="8.7463169"
+   height="6.7953"
+   width="3.0112648"
+   id="rect856"
+   style="fill:#000000;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.98674047"
+   y="82.388458"
+   x="8.746316"
+   height="2.9476731"
+   width="2.9285369"
+   id="Red_LED"  onclick = "redbutton()"
+   style="fill:#ff0000;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   style="fill:#00ff00;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill"
+   id="Green_LED" onclick = "f1()" display = "none"
+   width="2.9285369"
+   height="2.9476731"
+   x="8.6896677"
+   y="85.664169"
+   ry="0.98674047" />
+<rect
+   ry="0.62113583"
+   y="77.089211"
+   x="44.962399"
+   height="8.2920666"
+   width="21.177664"
+   id="close" display = "none"
+   style="fill:#e6e6e6;stroke:#000000;stroke-width:0.219712;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   style="fill:#808080;stroke:#000000;stroke-width:0.0542303;stroke-linejoin:round;paint-order:markers stroke fill"
+   id="close4" display = "none"
+   width="21.698339"
+   height="9.3239403"
+   x="44.480751"
+   y="67.729477"
+   ry="0.25105849" />
+<ellipse
+   ry="1.5015633"
+   rx="2.661607"
+   cy="81.646576"
+   cx="51.94117"
+   id="close6" display = "none"
+   style="fill:#333333;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<ellipse
+   ry="1.4157597"
+   rx="2.6996303"
+   cy="81.560776"
+   cx="60.876568"
+   id="close7"display = "none"
+   style="fill:#333333;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.25105914"
+   y="93.066788"
+   x="25.738455"
+   height="12.619843"
+   width="17.422318" 
+   id="random" 
+   style="fill: #ffffff;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill;"/>
+<rect
+   style="fill:#ffffff;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill;"
+   id="rect918-1"
+   width="17.422318"
+   height="12.619843"
+   x="46.506794"
+   y="92.98098"
+   ry="0.25105914" />
+<rect
+   ry="0.25105914"
+   y="77.049294"
+   x="4.4445109"
+   height="3.610539"
+   width="40.517891"
+   id="rect935"
+   style="fill:#4d4d4d;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.25105914"
+   y="110.66177"
+   x="4.6596007"
+   height="3.033612"
+   width="61.515835"
+   id="rect937"
+   style="fill:#4d4d4d;stroke:#000000;stroke-width:0.18134;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.36954075"
+   y="108.26086"
+   x="100.97578"
+   height="5.7155313"
+   width="53.631973"
+   id="rect939"
+   style="fill:#333333;stroke:#000000;stroke-width:0.249745;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0.3681848"
+   y="83.17968"
+   x="125.8111"
+   height="25.803488"
+   width="7.2046032"
+   id="rect941"
+   style="fill:#333333;stroke:#000000;stroke-width:0.287816;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0"
+   y="41.528507"
+   x="79.79026"
+   height="47.889961"
+   width="99.537231"
+   id="rect943"
+   style="fill:#333333;stroke:#000000;stroke-width:0.267099;stroke-linejoin:round;paint-order:markers stroke fill" />
+<rect
+   ry="0"
+   y="43.233547"
+   x="82.23748"
+   height="43.951023"
+   width="94.498238"
+   id="rect945"
+   style="fill:#fff;stroke:#000000;stroke-width:0.259872;stroke-linejoin:round;paint-order:markers stroke fill" />
+<path
+   sodipodi:nodetypes="cc"
+   id="path947"
+   d="M 66.175437,110.66177 C 120.40157,121.51282 125.19346,89.942379 125.21577,89.802561"
+   style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+<rect
+   style="opacity:0.2172524;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.291263;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stroke-opacity:1"
+   id="cuvette1" onclick="f7()"
+   width="5.4035435"
+   height="12.644682"
+   x="221.6572"
+   y="21.518196"
+   ry="0.28096569">
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;0,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="cuvette1.click;water_in_cuvette.click"
+              />
+
+               <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+   </rect>
+
+   <!--farhan added:  this is cuvette1_v2 on the table -->
+   <!-- this is water wala cuvette which will go flying towards the spectrometer -->
+   <rect
+   style="opacity:0.2172524;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.291263;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stroke-opacity:1"
+   id="cuvette1_v2" onclick = "" display = "none"
+   width="5.4035435"
+   height="12.644682"
+   x="221.6572"
+   y="101.518196"
+   ry="0.28096569">
+   
+
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;-173,-30.8"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="cuvette1_v2.click;water_in_cuvette_v2.click"
+           />
+   </rect>
+
+   <!-- this is kmno4 cuvette on the shelf -->
+ 
+<rect
+   style="opacity:0.20127796;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.291263;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="cuvette2" onclick = "f4()"
+   width="5.4035435"
+   height="12.644682"
+   x="229.82841"
+   y="21.374506"
+   ry="0.28096569">
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;8,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="cuvette2.click;"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+
+   </rect>
+  
+   <rect
+   style="opacity:0.20127796;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.291263;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="cuvette3"  display = "none" onclick = "f6()"
+   width="5.4035435"
+   height="12.644682"
+   x="237.82841"
+   y="101.374506"
+   ry="0.28096569"/>
+
+   <!-- this is kmno4 cuvette on the table: it will go flying towards the spectrometer -->
+   <rect
+   style="opacity:0.20127796;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.291263;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="cuvette2_v2" display = "none" onclick = "f8()"
+   width="5.4035435"
+   height="12.644682"
+   x="237.82841"
+   y="101.374506"
+   ry="0.28096569">
+
+  <animateTransform 
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        dur="1.5s"
+        values="0,0;-178,-30.9"
+        restart="whenNotActive"  
+        fill="freeze"
+        begin="cuvette2_v2.click; KMnO4_in_cuvette.click"
+     />
+     <animateTransform 
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        dur="1.5s"
+        values="-178,-30.9;0,0"
+        restart="whenNotActive"  
+        fill="freeze"
+        begin="dial.click"
+     />
+   </rect>
+<path
+   d="m 257.28256,12.135911 0.0285,0.05983 h -12.84102 c -0.22979,0 -0.41478,0.206896 -0.41478,0.463931 v 20.3801 c 0,0.257035 0.18499,0.464422 0.41478,0.464422 h 15.9537 c 0.22982,0 0.41523,-0.207387 0.41523,-0.464422 V 17.982126 l 3.11708,-5.594633 -3.32052,-0.125055 c -0.0621,-0.04137 -0.13398,-0.0667 -0.21179,-0.0667 h -1.55394 z"
+   style="opacity:0.20447284;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.476747;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="beaker" onclick = "f3()" >
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click; Big1.click;smol1.click;smol2.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+   
+   </path>
+   <path
+   id="Big1"
+   d="m 260.83898,17.982126 c -3.52523,-0.0083 -3.45843,0.05857 -3.45843,0.05857"
+   style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+               attributeName="transform"
+               attributeType="XML"
+               type="translate"
+               dur="1.5s"
+               values="15,80;0,0"
+               restart="whenNotActive"  
+               fill="freeze"
+               begin="dial.click+3s"
+               /> 
+                  
+   </path>
+<path
+   style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 260.71198,23.695104 c -3.52523,-0.0083 -3.45843,0.05857 -3.45843,0.05857"
+   id="Big2">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 261.04607,29.174129 c -3.52523,-0.0083 -3.45843,0.05857 -3.45843,0.05857"
+   id="Big3">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 260.73868,19.883298 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   id="smol1">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   id="smol2"
+   d="m 260.55273,21.556133 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;15,80"
+   restart="whenNotActive"
+   
+   fill="freeze"
+   begin="beaker.click;KMnO4_in_beaker.click"
+   />
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="15,80;0,0"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="dial.click+3s"
+  /> 
+
+</path>
+<path
+   id="smol3"
+   d="m 261.02045,25.097454 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   id="smol4"
+   d="m 261.15408,27.369245 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   id="smol5"
+   d="m 260.88681,30.643297 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" >
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<path
+   id="smol6"
+   d="m 260.95363,32.447366 c -1.8679,-0.0094 -1.8325,0.06629 -1.8325,0.06629"
+   style="fill:none;stroke:#000000;stroke-width:0.205219;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+             /> 
+   
+   </path>
+<rect
+   style="opacity:0.25878594;fill:#008bff;fill-opacity:1;stroke:#008bff;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stroke-opacity:1"
+   id="water_in_cuvette" onclick = "f7()"
+   width="5.6427307"
+   height="9.584137"
+   x="221.41801"
+   y="24.578743"
+   ry="0.48889178">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;0,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="water_in_cuvette.click;cuvette1.click"
+              />
+
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+   </rect>
+
+   <rect
+   style="opacity:0.25878594;fill:#008bff;fill-opacity:1;stroke:#008bff;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stroke-opacity:1"
+   id="water_in_cuvette_v2"  display = "none"
+   width="5.6427307"
+   height="9.584137"
+   x="221.41801"
+   y="104.578743"
+   ry="0.48889178">
+
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;-173,-30.8"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="cuvette1_v2.click;water_in_cuvette_v2.click"
+           />
+   </rect>
+<rect
+   style="opacity:0.888179;fill:#eeaaff;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="KMnO4_in_cuvette" display = "none" onclick = "f8()"
+   width="5.4035492"
+   height="9.5841389"
+   x="229.82841"
+   y="24.435049"
+   ry="0.46526808">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;8,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="KMnO4_in_cuvette.click;cuvette2.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+           <animateTransform 
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        dur="1.5s"
+        values="8,80;-170,50.9"
+        restart="whenNotActive"  
+        fill="freeze"
+        begin="cuvette2_v2.click; KMnO4_in_cuvette.click"
+     />
+     
+   </rect>
+
+   <rect
+   style="opacity:0.888179;fill:#eeaaff;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="KMnO4_in_cuvette_v2" display = "none"
+   width="5.4035492"
+   height="9.5841389"
+   x="237.82841"
+   y="104.435049"
+   ry="0.46526808">
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;-178,-30.9" 
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="cuvette2_v2.click;KMnO4_in_cuvette_v2.click"
+           />
+   </rect>
+
+   <rect
+   style="opacity:0.888179;fill:#eeaaff;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="KMnO4_in_cuvette_v2" display = "none" 
+   width="5.4035492"
+   height="9.5841389"
+   x="237.82841"
+   y="104.435049"
+   ry="0.46526808">
+
+     
+             <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;-177,71.8"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="beaker.click+1.7s"
+           /> 
+   </rect>
+
+<rect
+   style="opacity:0.891374;fill:#eeaaff;fill-opacity:1;stroke:#000000;stroke-width:0.49893;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+   id="KMnO4_in_beaker" display = "none" onclick = "f3()"
+   width="16.472015"
+   height="11.638211"
+   x="244.17088"
+   y="22.169271"
+   ry="0.59367108">
+
+   <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="0,0;15,80"
+              restart="whenNotActive"
+              
+              fill="freeze"
+              begin="beaker.click;KMnO4_in_beaker.click"
+              />
+              <animateTransform 
+              attributeName="transform"
+              attributeType="XML"
+              type="translate"
+              dur="1.5s"
+              values="15,80;0,0"
+              restart="whenNotActive"  
+              fill="freeze"
+              begin="dial.click+3s"
+           /> 
+
+   </rect>
+
+   <!--micro pipette STARTS-->
+   <path
+   d="m 201.52101,3.475 v 1.3363528 h 4.00906 V 3.475 Z m 4.47156,4.2162802 v 0.434082 h 2.65979 v -0.434082 z m -4.25504,12.9087728 c -0.25776,0 -0.46509,0.20733 -0.46509,0.465088 v 0.675928 c 0,0.257757 0.20733,0.465088 0.46509,0.465088 h 0.30334 v 6.62285 c 0,0.25776 0.20733,0.465606 0.46509,0.465606 h 0.70435 c 0.25776,0 0.46561,-0.207846 0.46561,-0.465606 v -6.62285 h 1.09967 c 0.25775,0 0.4656,-0.207331 0.4656,-0.465088 v -0.675928 c 0,-0.257758 -0.20785,-0.465088 -0.4656,-0.465088 z"
+   style="opacity:1;fill:#0097ff;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   id="micro pipette_grip" onclick = "f5()" >
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;63,70"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+<path
+   d="m 202.48309,29.289961 h 0.74168 v 0.548175 h -0.74168 z"
+   style="opacity:0.897764;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.194194;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   id="blackbox" onclick = "f5()" > 
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;63,70"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+<path
+   sodipodi:nodetypes="cccccccccccccccccccc"
+   d="m 202.7907,5.0113405 v 2.5393798 h 1.26969 V 5.0113405 Z m -1.99301,2.7062948 c -0.65989,4.3343687 -0.31609,8.6250997 0.0236,12.9160077 h 5.05602 c 0.30841,-4.189683 0.40171,-8.460031 0,-12.9160077 z m 5.21555,0.4666382 v 0.7353557 h 2.60966 V 8.1842735 Z m 2.22777,0.8046019 v 2.4685836 h 0.39016 V 8.9888754 Z"
+   style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   id="micro pipette" onclick = "f5()" >
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="0,0;63,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+<path
+   d="m 201.50854,10.961308 h 0.8032 v 3.921502 h -0.8032 z"
+   style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   id="blackbox2" onclick = "f5()">
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;63,70"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+<path
+   inkscape:transform-center-x="3.5007944e-06"
+   sodipodi:nodetypes="cccc"
+   d="m 202.86732,32.146096 -0.40195,-2.337489 0.78829,-2.02e-4 z"
+   inkscape:transform-center-y="0.1098715"
+   style="opacity:0.2172524;fill:#33fff8;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.079482;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   id="micro pipettetip" onclick = "f5()"  >
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;63,70"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+<path
+   id="KMnO4_in_micro pipette" display = "none"  onclick = "f5()" 
+   style="opacity:0.84984026;fill:#eeaaffff;fill-opacity:1;fill-rule:nonzero;stroke:#eeaaffff;stroke-width:0.0794819;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+   inkscape:transform-center-y="0.1098715"
+   d="m 202.86732,32.146096 -0.40195,-2.337489 0.78829,-2.02e-4 z"
+   sodipodi:nodetypes="cccc"
+   inkscape:transform-center-x="3.5007944e-06" >
+   <animateTransform 
+   attributeName="transform"
+   attributeType="XML"
+   type="translate"
+   dur="1.5s"
+   values="0,0;63,70"
+   restart="whenNotActive"  
+   fill="freeze"
+   begin="micro pipette_grip.click;blackbox.click;blackbox2.click; micro pipette.click; micro pipettetip.click; KMnO4_in_micro pipette.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="63,70; 37.5,70"
+restart="whenNotActive"  
+fill="freeze"
+begin="cuvette3.click"
+/>
+<animateTransform 
+attributeName="transform"
+attributeType="XML"
+type="translate"
+dur="1.5s"
+values="37.5,70;0,0"
+restart="whenNotActive"  
+fill="freeze"
+begin="dial.click+3s"
+/> 
+</path>
+   <!--micro pipette ENDS-->
+<rect
+   ry="0.11769956"
+   y="77.104248"
+   x="49.833084"
+   height="5.2969942"
+   width="5.4035435"
+   id="close3" display = "none"
+   style="opacity:0.217252;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.188516;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
+<rect
+   ry="0.11769956"
+   y="77.044052"
+   x="58.004303"
+   height="5.2969942"
+   width="5.4035435"
+   id="close5" display = "none"
+   style="opacity:0.201278;fill:#33fff8;fill-opacity:1;stroke:#000000;stroke-width:0.188516;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill" />
+<rect
+   ry="0.20480205"
+   y="78.386345"
+   x="49.593903"
+   height="4.0148988"
+   width="5.6427307"
+   id="close2" display = "none"
+   style="opacity:0.258786;fill:#008bff;fill-opacity:1;stroke:#008bff;stroke-width:0.171516;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
+<rect
+   ry="0.19490583"
+   y="78.326149"
+   x="58.004303"
+   height="4.0148993"
+   width="5.4035492"
+   id="KMnO4_in_specto" display = "none"
+   style="opacity:1;fill:#eeaaff;fill-opacity:1;stroke:#000000;stroke-width:0.171516;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill" />
+<text
+   id="Pisplay1" onclick = "f1()"
+   y="100.7779"
+   x="27.875744"
+   style="color:red;font-style:normal;font-weight:normal;font-size:5.93889px;line-height:1.25;font-family:sans-serif;fill:red;fill-opacity:1;stroke:none;stroke-width:0.264583"
+   xml:space="preserve"><tspan
+     style="font-size:4.93889px;stroke-width:0.264583; color:red"
+     y="100.7779"
+     x="27.875744"
+     id="tspan1143"
+     sodipodi:role="line"></tspan></text>
+     
+<text
+   xml:space="preserve"
+   style="font-style:normal;font-weight:normal;color:red ; background-color: red;font-size:5.9389px;line-height:1.25;font-family:sans-serif;fill:red;fill-opacity:1;stroke:none;stroke-width:0.264583"
+   x="47.903545"
+   y="100.58774"
+   id="Pisplay2" onclick = "f1()"><tspan
+     sodipodi:role="line"
+     id="tspan1143-4"
+     x="47.903545"
+     y="100.58774"
+     style="font-size:4.9389px;stroke-width:0.264583; color:red; background-color: red;"></tspan></text>
+     <ellipse
+     ry="3.0067821"
+     rx="3.4076865"
+     cy="97.219292"
+     cx="14.766642"
+     id="dial" onclick = "f9()"
+     style="opacity:1;fill:#373e48;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill" />
+     
+      
+     <path
+     id="path1167"
+     d="m 14.967093,94.41296 c 0,1.737252 0,1.937703 0,1.937703"
+     style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+</g>
+</svg>
+
+<div id="chartContainer" onclick = "f9()" style="height: 120px; width: 260px; margin-top: -580px; margin-left: 270px;position: absolute;"></div>
+<div id="bandage1"  style="height: 11px; width: 53px; margin-top: -472px; margin-left: 270px;position: absolute; background:white"></div> 
+
+<div id="chartContainer1" style="height: 18px; width: 64px; margin-top: -454px; margin-left: 70px;position: absolute; background-color:lightblue;font-size: 12px; color: #000000;font-family:Arial, Helvetica, sans-serif;box-shadow: rgba(0, 0, 0, 0.7) 10px 20px 30px ;border-radius: 2px;text-align:justify;">Wavelength</div>
+<div id="chartContainer1" style="height: 18px; width: 64px; margin-top: -454px; margin-left: 138px;position: absolute; background-color: lightblue;font-size: 12px ;color: #000000;font-family:Arial, Helvetica, sans-serif;box-shadow: rgba(0, 0, 0, 0.7) 10px 20px 30px ;border-radius: 2px;text-align:justify;">Absorbance</div>
+<!--<div id="chartContainer3" style="height: 32px; width: 64px; margin-top: -440px; margin-left: 70px;position: absolute; background-color: rgb(243, 241, 123);font-size: 12px"></div>
+<div id="chartContainer4" style="height: 32px; width: 64px; margin-top: -440px; margin-left: 138px;position: absolute; background-color: #fff"></div>-->
+      </div>
+      <div style="padding-top: 150px; padding-left: 50px;">
+         <div id = "svg2" onclick ="clock1()" style = "position:absolute; z-index: 0; padding-left: 200px; display:none; padding-left: 400px;">
+          <article class="clock">
+             <div class="hours-container">
+               <div class="hours"></div>
+             </div>
+             <div class="minutes-container">
+               <div class="minutes"></div>
+             </div>
+             <div class="seconds-container">
+               <div class="seconds"></div>
+             </div>
+           </article>
+     
+     </div>
+     </div>
+     
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+     <script src = "MerryChristmas.js">
+    </script> 
+   </body>
+</html>

@@ -1,0 +1,43 @@
+.master {
+  height: 90px;
+  width: 700px;
+  margin-left: 300px;
+  position: relative;
+  z-index: 0;
+}
+
+.slave {
+  height: 90px;
+  width: 700px;
+  margin-left: 300px;
+  position: absolute;
+  background-color: rgb(238, 236, 236);
+
+  text-align: center;
+  box-shadow: 2px 2px 5px;
+}
+
+#formContainer {
+  padding: 15px;
+}
+
+#formContainer button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+#n-right,
+#n-wrong,
+#s-right,
+#s-wrong {
+  display: none;
+}
+.canvasjs-chart-credit{
+  display: none
+}
